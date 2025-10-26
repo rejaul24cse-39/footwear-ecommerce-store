@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Footwear Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">FootWear Store</a></h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for shoes...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <span class="cart-count" id="cartCount">0</span>
+                    🛒 Cart
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-container">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainImage" src="images/product-1.jpg" alt="Product" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22500%22 height=%22500%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%23666%22%3EProduct Image%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img class="thumbnail active" src="images/product-1.jpg" alt="Thumbnail 1" onclick="changeImage(this.src)">
+                        <img class="thumbnail" src="images/product-1-alt.jpg" alt="Thumbnail 2" onclick="changeImage(this.src)">
+                        <img class="thumbnail" src="images/product-1-alt2.jpg" alt="Thumbnail 3" onclick="changeImage(this.src)">
+                    </div>
+                </div>
+                
+                <!-- Product Information -->
+                <div class="product-info">
+                    <h1 class="product-title" id="productTitle">Loading...</h1>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(124 reviews)</span>
+                    </div>
+                    
+                    <div class="product-price">
+                        <span class="current-price" id="productPrice">BDT 0</span>
+                        <span class="original-price" id="originalPrice">BDT 0</span>
+                        <span class="discount" id="discount">0% OFF</span>
+                    </div>
+                    
+                    <div class="product-description">
+                        <h3>Product Description</h3>
+                        <p id="productDescription">Loading product details...</p>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="size-selector">
+                            <h4>Select Size:</h4>
+                            <div class="size-options" id="sizeOptions">
+                                <button class="size-btn" onclick="selectSize(6)">6</button>
+                                <button class="size-btn" onclick="selectSize(7)">7</button>
+                                <button class="size-btn" onclick="selectSize(8)">8</button>
+                                <button class="size-btn" onclick="selectSize(9)">9</button>
+                                <button class="size-btn" onclick="selectSize(10)">10</button>
+                                <button class="size-btn" onclick="selectSize(11)">11</button>
+                            </div>
+                        </div>
+                        
+                        <div class="color-selector">
+                            <h4>Select Color:</h4>
+                            <div class="color-options" id="colorOptions">
+                                <button class="color-btn" style="background-color: #000" onclick="selectColor('Black')"></button>
+                                <button class="color-btn" style="background-color: #8B4513" onclick="selectColor('Brown')"></button>
+                                <button class="color-btn" style="background-color: #fff; border: 1px solid #ddd" onclick="selectColor('White')"></button>
+                                <button class="color-btn" style="background-color: #4169E1" onclick="selectColor('Blue')"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <h4>Quantity:</h4>
+                            <div class="quantity-controls">
+                                <button onclick="decreaseQuantity()">-</button>
+                                <input type="number" id="quantity" value="1" min="1" max="10">
+                                <button onclick="increaseQuantity()">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart" onclick="addToCartDetail()">Add to Cart</button>
+                        <button class="btn-secondary buy-now" onclick="buyNow()">Buy Now</button>
+                    </div>
+                    
+                    <div class="product-features">
+                        <h4>Key Features:</h4>
+                        <ul id="productFeatures">
+                            <li>Premium quality materials</li>
+                            <li>Comfortable fit</li>
+                            <li>Durable construction</li>
+                            <li>Available in multiple sizes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2>Related Products</h2>
+                <div class="product-grid" id="relatedProducts">
+                    <!-- Related products will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Premium quality footwear for every occasion. Style meets comfort.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@footwearstore.com</p>
+                    <p>Phone: +880-123-456789</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Footwear Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/product-detail.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
