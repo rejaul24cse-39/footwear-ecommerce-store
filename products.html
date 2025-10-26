@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Footwear Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">FootWear Store</a></h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for shoes...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <span class="cart-count" id="cartCount">0</span>
+                    🛒 Cart
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <!-- Filters Sidebar -->
+            <div class="products-container">
+                <aside class="filters-sidebar">
+                    <h3>Filters</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <label><input type="checkbox" name="category" value="men" onchange="filterProducts()"> Men's Shoes</label>
+                        <label><input type="checkbox" name="category" value="women" onchange="filterProducts()"> Women's Shoes</label>
+                        <label><input type="checkbox" name="category" value="kids" onchange="filterProducts()"> Kids' Shoes</label>
+                        <label><input type="checkbox" name="category" value="sports" onchange="filterProducts()"> Sports Shoes</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Size</h4>
+                        <label><input type="checkbox" name="size" value="6" onchange="filterProducts()"> 6</label>
+                        <label><input type="checkbox" name="size" value="7" onchange="filterProducts()"> 7</label>
+                        <label><input type="checkbox" name="size" value="8" onchange="filterProducts()"> 8</label>
+                        <label><input type="checkbox" name="size" value="9" onchange="filterProducts()"> 9</label>
+                        <label><input type="checkbox" name="size" value="10" onchange="filterProducts()"> 10</label>
+                        <label><input type="checkbox" name="size" value="11" onchange="filterProducts()"> 11</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <label><input type="checkbox" name="price" value="0-2000" onchange="filterProducts()"> Under BDT 2,000</label>
+                        <label><input type="checkbox" name="price" value="2000-4000" onchange="filterProducts()"> BDT 2,000 - 4,000</label>
+                        <label><input type="checkbox" name="price" value="4000-6000" onchange="filterProducts()"> BDT 4,000 - 6,000</label>
+                        <label><input type="checkbox" name="price" value="6000-10000" onchange="filterProducts()"> Above BDT 6,000</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Brand</h4>
+                        <label><input type="checkbox" name="brand" value="bata" onchange="filterProducts()"> Bata</label>
+                        <label><input type="checkbox" name="brand" value="nike" onchange="filterProducts()"> Nike</label>
+                        <label><input type="checkbox" name="brand" value="adidas" onchange="filterProducts()"> Adidas</label>
+                        <label><input type="checkbox" name="brand" value="puma" onchange="filterProducts()"> Puma</label>
+                    </div>
+                    
+                    <button class="btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                </aside>
+                
+                <!-- Products Grid -->
+                <div class="products-grid-section">
+                    <div class="products-header">
+                        <p id="productCount">Showing all products</p>
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="default">Sort By</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name: A to Z</option>
+                        </select>
+                    </div>
+                    
+                    <div class="product-grid" id="productGrid">
+                        <!-- Products will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Premium quality footwear for every occasion. Style meets comfort.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@footwearstore.com</p>
+                    <p>Phone: +880-123-456789</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Footwear Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
